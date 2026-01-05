@@ -59,7 +59,7 @@ BookingSchema.pre('save', async function (next) {
     }
   }
 
-  // next();   // No need to call next() at the end of an async function
+  // next(); // No need to call next() at the end of an async function
 
 });
 
