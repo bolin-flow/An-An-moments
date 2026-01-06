@@ -28,6 +28,10 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
+
+    let tags = JSON.parse(formData.get("tags") as string);
+    let agenda = JSON.parse(formData.get("agenda") as string);
+
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
@@ -49,7 +53,9 @@ export async function POST(req: NextRequest) {
     // add the uploaded image to the event object
     event.image = (uploadResult as { secure_url: string }).secure_url;
     // the image is hosted on cloudinary and added to the event object
-    const createdEvent = await Event.create(event);
+    const createdEvent = await Event.create(
+      {...event, tags:tags,  agenda:agenda }
+    ); // create a new event document and json parsed tags and agenda arrays
 
     return NextResponse.json(
       {

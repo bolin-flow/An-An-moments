@@ -2,10 +2,14 @@ import ExploreBtn from "@/components/ExploreBtn";
 import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database";
 // import { events } from "@/lib/constants"; no need to get from constants but from API
+import {cacheLife} from "next/cache";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 const Page = async () => {
+  // use cache to cache the fetch result for several hours
+  'use cache';
+  cacheLife('hours') // even adding new event, the cache will still be used within the cache life time
   const response = await fetch(`${BASE_URL}/api/events`);
   const { events } = await response.json();
   
