@@ -5,6 +5,7 @@ import BookEvent from "@/components/BookEvent";
 import { getSimilarEventBySlug } from "@/lib/actions/event.actions";
 import { IEvent } from "@/database";
 import EventCard from "@/components/EventCard";
+import { cacheLife } from "next/cache";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -52,6 +53,9 @@ const EventDetailsPage = async ({
 }: {
   params: Promise<{ slug: string }>;
 }) => {
+  "use cache";
+  cacheLife("hours");
+
   const { slug } = await params;
   const request = await fetch(`${BASE_URL}/api/events/${slug}`);
   const { event } = await request.json(); // extract the data field from the response
@@ -140,8 +144,8 @@ const EventDetailsPage = async ({
             ) : (
               <p className="text-sm">Be the first to book your spot!</p>
             )}
-            
-            <BookEvent />
+
+            <BookEvent eventId={event._id.toString()} slug={event.slug} />
           </div>
         </aside>
       </div>
@@ -150,11 +154,12 @@ const EventDetailsPage = async ({
       <div className="flex w-full flex-col gap-4 pt-20">
         <h2>Similar Events</h2>
         <div className="events">
-          {similarEvents.length > 0 && similarEvents.map((similarEvent: IEvent) => (
-            <EventCard key={similarEvent._id.toString()} {...similarEvent}/>
-          ))}
+          {similarEvents.length > 0 &&
+            similarEvents.map((similarEvent: IEvent) => (
+              <EventCard key={similarEvent._id.toString()} {...similarEvent} />
+            ))}
         </div>
-        </div>
+      </div>
     </section>
   );
 };
