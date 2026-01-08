@@ -6,14 +6,15 @@ const NavBar = () => {
     <header>
       <nav>
         <Link href="/" className="logo">
-          <Image src="/icons/logo.png" alt="logo" width={24} height={24} />
-          <p>NavBar Text</p>
+          <Image src="/icons/logo1.png" alt="logo" width={24} height={24} />
+          <p>知行合一</p>
               </Link>
               
               <ul>
                   <Link href="/">Home</Link>
                   <Link href="/">Moments</Link>
-                    <Link href="/">Create Moment</Link>
+          <Link href="/">Create Moment</Link>
+          <Link href="/mind-train">Mind Train</Link>
               </ul>
       </nav>
     </header>

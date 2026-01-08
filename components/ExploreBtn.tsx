@@ -1,4 +1,4 @@
-"use client";
+// "use client"; for the moment we don't use any client side feature
 import Image from "next/image";
 const ExploreBtn = () => {
   return (
@@ -6,10 +6,9 @@ const ExploreBtn = () => {
       type="button"
       id="explore-btn"
       className="mt-7 mx-auto"
-      onClick={() => console.log("CLICKed")}
+      // onClick={() => console.log("CLICKed")}
     >
       <a href="#events">
-        {" "}
         Explore Moments
         <Image
           src="/icons/arrow-down.svg"
