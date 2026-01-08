@@ -3,7 +3,7 @@ import EventCard from "@/components/EventCard";
 import { IEvent } from "@/database";
 // import { events } from "@/lib/constants"; no need to get from constants but from API
 import { cacheLife } from "next/cache";
-// import { events, EventItem } from "@/lib/constants";
+// import { events, EventItem } from "@/lib/constants"; fake events for firt url building on vercel
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
