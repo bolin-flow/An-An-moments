@@ -13,6 +13,9 @@ export default function MindTrainPage() {
             type="button"
             id="karma-habit-btn"
             className="mb-7 mx-auto bg-dark-100/50 border-dark-200 rounded-full p-4 hover:bg-dark-200 min-w-40"
+            style={{
+              boxShadow: "0 0 10px rgba(75, 72, 69, 0.96)",
+            }}
           >
             <a className="font-bold" href="/mind-train/karma-habit">
               <h3>习性</h3>
@@ -24,7 +27,10 @@ export default function MindTrainPage() {
               alt="习性"
               width={400}
               height={300}
-            className="opacity-85 rounded-lg object-cover hover:opacity-60 transition"
+              className="opacity-70 rounded-lg object-cover hover:opacity-80 transition"
+              style={{
+                boxShadow: "0 0 30px rgba(233, 174, 101, 0.96)",
+              }}
             />
           </Link>
         </div>
@@ -34,6 +40,9 @@ export default function MindTrainPage() {
             type="button"
             id="karma-habit-btn"
             className="mb-7 mx-auto bg-dark-100/50 border-dark-200 rounded-full p-4 hover:bg-dark-200 min-w-40"
+            style={{
+              boxShadow: "0 0 10px rgba(75, 72, 69, 0.96)",
+            }}
           >
             <a className="font-bold" href="/mind-train/small-wishe">
               <h3>小愿</h3>
@@ -44,10 +53,20 @@ export default function MindTrainPage() {
             alt="小愿"
             width={400}
             height={300}
-            className="opacity-85 rounded-lg object-cover hover:opacity-60 transition"
+            className="opacity-70 rounded-lg object-cover hover:opacity-80 transition"
+            style={{
+              boxShadow: "0 0 30px rgba(233, 174, 101, 0.96)",
+            }}
           />
         </div>
       </div>
+
+      <main className="flex flex-col items-center gap-y-5 pt-24 text-center">
+        <h1> Welcome to my blog</h1>
+        <Link href="/mind-train/karma-habit" className="underline">
+          View posts
+        </Link>
+      </main>
     </div>
   );
 }
