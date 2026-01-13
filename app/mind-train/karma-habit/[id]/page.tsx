@@ -24,11 +24,11 @@ export default async function NotePage({
   return (
     <main className="flex flex-col items-center pt-24 px-4 max-w-3xl mx-auto text-center">
       <h1 className="text-3xl font-bold mb-6">{note.title}</h1>
-      <p className="text-white font-bold leading-relaxed text-lg whitespace-pre-wrap text-start w-full">
+      <p className="text-white font-bold leading-relaxed text-lg whitespace-pre-wrap text-start w-full border-t border-gray-500 pt-6">
         {note.content}
       </p>
 
-      <div className="mt-10 pt-4 border-t border-gray-200 w-full text-right text-gray-400 text-sm">
+      <div className="mt-10 pt-4 border-t border-gray-500 w-full text-right text-gray-400 text-sm">
         Posted on {new Date(note.createdAt).toLocaleDateString()}
       </div>
 
